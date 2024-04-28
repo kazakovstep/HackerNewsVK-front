@@ -8,11 +8,16 @@ import {AdaptivityProvider, AppRoot, ConfigProvider} from "@vkontakte/vkui";
 import {Provider} from "react-redux";
 import {store} from "./store/store";
 
+
+import '@vkontakte/vkui/dist/vkui.css';
+
+
+
 const router = createHashRouter([
     {
         path: '/',
-        panel: 'home_panel',
-        view: 'default_view',
+        panel: 'news',
+        view: 'news',
     },
 ]);
 
