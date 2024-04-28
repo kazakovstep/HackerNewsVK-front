@@ -16,7 +16,12 @@ import '@vkontakte/vkui/dist/vkui.css';
 const router = createHashRouter([
     {
         path: '/',
-        panel: 'news',
+        panel: 'main_page',
+        view: 'news',
+    },
+    {
+        path: '/news/:id',
+        panel: 'item_page',
         view: 'news',
     },
 ]);
