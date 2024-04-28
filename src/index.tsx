@@ -3,14 +3,35 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createHashRouter, RouterProvider} from '@vkontakte/vk-mini-apps-router';
+import {AdaptivityProvider, AppRoot, ConfigProvider} from "@vkontakte/vkui";
+import {Provider} from "react-redux";
+import {store} from "./store/store";
+
+const router = createHashRouter([
+    {
+        path: '/',
+        panel: 'home_panel',
+        view: 'default_view',
+    },
+]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <ConfigProvider>
+        <AdaptivityProvider>
+            <AppRoot>
+                <RouterProvider router={router}>
+                    <Provider store={store}>
+                        <App/>
+                    </Provider>
+                </RouterProvider>
+            </AppRoot>
+        </AdaptivityProvider>
+    </ConfigProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
