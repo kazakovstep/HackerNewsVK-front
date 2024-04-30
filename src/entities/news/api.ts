@@ -22,7 +22,7 @@ export const newsApi = createApi({
             },
         }),
         getNewsItemById: builder.query<NewsItem, number>({
-            query: (id) => `item/${id}.json`,
+            query: (id) => `item/${id}.json`
         }),
     }),
 });

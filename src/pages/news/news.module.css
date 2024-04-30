@@ -1,0 +1,5 @@
+.refetchButton {
+    position: fixed!important;
+    z-index: 1;
+    right: 1rem!important;
+}

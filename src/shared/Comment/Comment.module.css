@@ -1,0 +1,7 @@
+.comment{
+    display: flex;
+    flex-direction: column;
+}
+.showButton{
+    justify-content: flex-end!important;
+}

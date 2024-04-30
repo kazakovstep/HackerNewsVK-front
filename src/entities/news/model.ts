@@ -6,6 +6,8 @@ export interface NewsItem {
     time: string;
     score: number;
     descendants: number;
+    kids: number[];
+    text: string;
 }
 
 export function formatUnixTimeToDateTime(time: string): string {

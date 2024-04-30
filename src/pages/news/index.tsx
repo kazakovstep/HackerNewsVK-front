@@ -1,16 +1,17 @@
 import {useGetNewsItemsQuery} from "../../entities/news";
-import {Div} from "@vkontakte/vkui";
+import {Button, Div} from "@vkontakte/vkui";
 import React, {useEffect} from "react";
 import NewsPreview from "../../entities/news/ui";
 import Loading from "../../shared/Loading/Loading";
+import styles from "./news.module.css"
 
 export default function News() {
-    const {data: news, isLoading, error} = useGetNewsItemsQuery();
+    const {data: news, isLoading, error, refetch} = useGetNewsItemsQuery();
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             window.location.reload();
-        }, 10000);
+        }, 60000);
 
         return () => clearInterval(intervalId);
     }, []);
@@ -20,10 +21,11 @@ export default function News() {
     if (error) return <Div>Ошибка: {error?.toString()}</Div>;
 
     return (
-        <>
+        <Div>
+            <Button appearance={"accent"} onClick={() => refetch()} className={styles.refetchButton}>Обновить новости</Button>
             {news?.map((item) => (
                 <NewsPreview item={item}></NewsPreview>
             ))}
-        </>
+        </Div>
     );
 }
