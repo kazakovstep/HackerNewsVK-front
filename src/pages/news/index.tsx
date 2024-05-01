@@ -22,7 +22,8 @@ export default function News() {
 
     return (
         <Div>
-            <Button appearance={"accent"} onClick={() => refetch()} className={styles.refetchButton}>Обновить новости</Button>
+            <Button appearance={"accent"} onClick={() => refetch()} className={styles.refetchButton}>Обновить
+                новости</Button>
             {news?.map((item) => (
                 <NewsPreview item={item}></NewsPreview>
             ))}

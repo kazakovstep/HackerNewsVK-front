@@ -9,7 +9,7 @@ const NewsPreview = ({item}: { item: NewsItem }) => {
     const routeNavigator = useRouteNavigator();
 
     return (
-        <Group key={item.id} mode="plain" onClick={() => routeNavigator.push(`/news/${item.id}`)}>
+        <Group key={item.id} mode="plain" onClick={() => routeNavigator.push(`/news/${item.id}`)} style={{cursor: "pointer"}}>
             <CardGrid size="l">
                 <Card mode="outline">
                     <Div>
