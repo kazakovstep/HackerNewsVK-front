@@ -1,4 +1,4 @@
-export interface NewsItem {
+export interface CommentItem {
     id: number;
     title: string;
     url: string;

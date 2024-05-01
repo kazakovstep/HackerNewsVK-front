@@ -3,10 +3,10 @@ import {Button, Div} from "@vkontakte/vkui";
 import React, {useEffect} from "react";
 import NewsPreview from "../../entities/news/ui";
 import Loading from "../../shared/Loading/Loading";
-import styles from "./news.module.css"
+import styles from "../../app/styles/news.module.css"
 
 export default function News() {
-    const {data: news, isLoading, error, refetch} = useGetNewsItemsQuery();
+    const {data: news, isFetching, error, refetch} = useGetNewsItemsQuery();
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -16,7 +16,7 @@ export default function News() {
         return () => clearInterval(intervalId);
     }, []);
 
-    if (isLoading) return <Loading/>;
+    if (isFetching) return <Loading/>;
 
     if (error) return <Div>Ошибка: {error?.toString()}</Div>;
 

@@ -1,9 +1,8 @@
 import React from 'react';
-import './App.css';
 import {useActiveVkuiLocation, useGetPanelForView} from "@vkontakte/vk-mini-apps-router";
 import {Panel, Root, View} from "@vkontakte/vkui";
-import News from "./pages/news";
-import ItemPage from "./pages/itemPage"
+import News from "../pages/news";
+import ItemPage from "../pages/itemPage"
 
 function App() {
     const {view: activeView} = useActiveVkuiLocation() as { view: string };

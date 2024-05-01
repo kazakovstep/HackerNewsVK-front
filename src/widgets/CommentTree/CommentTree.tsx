@@ -1,9 +1,13 @@
 import {useGetNewsItemByIdQuery} from "../../entities/news";
-import {Comment} from "../Comment/Comment"
-import {Button} from "@vkontakte/vkui";
+import {Comment} from "../../entities/comment/ui"
+import {Button, Div} from "@vkontakte/vkui";
+import React from "react";
+import Loading from "../../shared/Loading/Loading";
 
 const CommentsTree = ({newsId}: { newsId: number }) => {
-    const {data: news, refetch} = useGetNewsItemByIdQuery(newsId);
+    const {data: news, isFetching, refetch} = useGetNewsItemByIdQuery(newsId);
+
+    if (isFetching) return <Loading/>;
 
     return (
         <div>

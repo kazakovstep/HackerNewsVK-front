@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './app/styles/index.css';
+import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 import {createHashRouter, RouterProvider} from '@vkontakte/vk-mini-apps-router';
 import {AdaptivityProvider, AppRoot, ConfigProvider} from "@vkontakte/vkui";
 import {Provider} from "react-redux";
-import {store} from "./store/store";
+import {store} from "./app/store/store";
 
 
 import '@vkontakte/vkui/dist/vkui.css';
