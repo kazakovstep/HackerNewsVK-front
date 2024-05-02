@@ -3,7 +3,7 @@ import {formatUnixTimeToDateTime, useGetNewsItemByIdQuery} from "../../entities/
 import {Avatar, Button, Cell, Counter, Div, Group, Link, Paragraph, Text, Title} from "@vkontakte/vkui";
 import React from "react";
 import {Icon24MessageOutline} from "@vkontakte/icons";
-import CommentTree from "../../widgets/CommentTree/CommentTree";
+import CommentTree from "../../widgets/CommentTree/ui";
 import {useRouteNavigator} from "@vkontakte/vk-mini-apps-router";
 
 export default function ItemPage() {

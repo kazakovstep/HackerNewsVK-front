@@ -9,17 +9,30 @@ import {
 } from "@vkontakte/vkui";
 import {formatUnixTimeToDateTime} from "./model";
 import {Icon24ChevronDown, Icon24ChevronUp, Icon28User} from "@vkontakte/icons";
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import styles from "../../app/styles/Comment.module.css"
 import {useGetNewsItemByIdQuery} from "./api";
+import {useDispatch} from "react-redux";
+import {actions as kidsActions} from "../../app/store/slices/kidsSlice.slice"
+import Ui from "../../shared/Loading/ui";
 
 export const Comment = ({id}: { id: number }) => {
-    const {data: comment} = useGetNewsItemByIdQuery(id);
+    const {data: comment, isLoading} = useGetNewsItemByIdQuery(id);
     const [showChildren, setShowChildren] = useState(false);
 
     const toggleChildren = useCallback(() => {
         setShowChildren(prev => !prev);
     }, []);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (comment) {
+            dispatch(kidsActions.isDeleted(comment?.deleted !== undefined))
+        }
+    }, [comment]);
+
+    if (isLoading) return <Paragraph>Loading...</Paragraph>
 
     return (
         <>
