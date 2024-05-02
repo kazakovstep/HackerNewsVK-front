@@ -11,10 +11,9 @@ import {formatUnixTimeToDateTime} from "./model";
 import {Icon24ChevronDown, Icon24ChevronUp, Icon28User} from "@vkontakte/icons";
 import React, {useCallback, useEffect, useState} from "react";
 import styles from "../../app/styles/Comment.module.css"
-import {useGetNewsItemByIdQuery} from "./api";
+import {useGetAllChildrenQuery, useGetNewsItemByIdQuery} from "./api";
 import {useDispatch} from "react-redux";
 import {actions as kidsActions} from "../../app/store/slices/kidsSlice.slice"
-import Loading from "../../shared/Loading/Loading";
 
 export const Comment = ({id}: { id: number }) => {
     const {data: comment, isLoading} = useGetNewsItemByIdQuery(id);
@@ -32,6 +31,8 @@ export const Comment = ({id}: { id: number }) => {
         }
     }, [comment]);
 
+    const {data: childs} = useGetAllChildrenQuery(id);
+
     if (isLoading) return <Paragraph>Loading...</Paragraph>
 
     return (
@@ -44,15 +45,15 @@ export const Comment = ({id}: { id: number }) => {
                     </Cell>
                     <Paragraph style={{paddingLeft: 58}}
                                dangerouslySetInnerHTML={String(comment?.text) !== "undefined" ? {__html: String(comment?.text)} : undefined}/>
-                    {comment?.kids && comment.kids.length > 0 && (
+                    {comment?.kids && comment.kids.length > 0 && childs?.length !== 0 &&  (
                         <Button mode="tertiary" before={showChildren ? <Icon24ChevronUp/> : <Icon24ChevronDown/>}
                                 onClick={toggleChildren} className={styles.showButton}>
                             {showChildren ? 'Скрыть ответы' : 'Показать ответы'}
                         </Button>
                     )}
-                    {showChildren && comment?.kids?.map((childId) => (
-                        <Div key={childId} style={{paddingLeft: 58}}>
-                            <Comment id={childId}/>
+                    {showChildren && childs?.map((child) => (
+                        <Div key={child.id} style={{paddingLeft: 58}}>
+                            <Comment id={child.id}/>
                         </Div>
                     ))}
                 </Div>}

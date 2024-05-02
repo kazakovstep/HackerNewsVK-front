@@ -61,8 +61,5 @@
     "jest": "^27.5.1",
     "ts-jest": "^29.1.2"
   },
-  "jest": {
-    "testEnvironment": "node"
-  },
   "homepage": "."
 }

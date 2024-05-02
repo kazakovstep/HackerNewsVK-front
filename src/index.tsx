@@ -13,7 +13,7 @@ import '@vkontakte/vkui/dist/vkui.css';
 
 
 
-const router = createHashRouter([
+export const router = createHashRouter([
     {
         path: '/',
         panel: 'main_page',
