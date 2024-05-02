@@ -1,7 +1,7 @@
 # Hacker News
 
 AppId: 51915755
-Link to the [Hacker News](https://prod-app51915755-744ddee0afb8.pages-ac.vk-apps.com/index.html)
+Link to the [Hacker News](https://prod-app51915755-779c3261954e.pages-ac.vk-apps.com/index.html)
  
 This is a React application that fetches news articles from the Hacker News API.
 
@@ -11,7 +11,7 @@ This is a React application that fetches news articles from the Hacker News API.
 
 2) Navigate into the project directory: `cd HackerNewsVK-front`
 
-3) Install the dependencies: `yarn`
+3) Install the dependencies: `yarn install`
 
 ## Usage
 1) Start the development server:
