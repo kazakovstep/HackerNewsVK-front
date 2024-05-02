@@ -1,9 +1,9 @@
 import {ScreenSpinner} from '@vkontakte/vkui';
 
-const Ui = () => {
+const Loading = () => {
     return (
         <ScreenSpinner size="large"/>
     );
 }
 
-export default Ui;
+export default Loading;

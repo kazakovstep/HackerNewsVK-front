@@ -14,7 +14,7 @@ import styles from "../../app/styles/Comment.module.css"
 import {useGetNewsItemByIdQuery} from "./api";
 import {useDispatch} from "react-redux";
 import {actions as kidsActions} from "../../app/store/slices/kidsSlice.slice"
-import Ui from "../../shared/Loading/ui";
+import Loading from "../../shared/Loading/Loading";
 
 export const Comment = ({id}: { id: number }) => {
     const {data: comment, isLoading} = useGetNewsItemByIdQuery(id);

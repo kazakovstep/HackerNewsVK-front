@@ -2,7 +2,7 @@ import {NewsItem, useGetNewsItemByIdQuery} from "../../entities/news";
 import {Comment} from "../../entities/comment/ui"
 import {Button, Div} from "@vkontakte/vkui";
 import React from "react";
-import Ui from "../../shared/Loading/ui";
+import Loading from "../../shared/Loading/Loading";
 import {useSelector} from "react-redux";
 import {RootState} from "../../app/store/store";
 
@@ -12,7 +12,7 @@ const CommentsTree = ({newsId}: { newsId: number }) => {
     const isDeleted = useSelector((state: RootState) => state.kids.deleted)
     console.log(isDeleted)
 
-    if (isFetching) return <Ui/>;
+    if (isFetching) return <Loading/>;
 
     return (
         <Div>
